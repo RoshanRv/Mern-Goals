@@ -14,8 +14,7 @@ const registerUser = asyncHandler(async(req,res)=>{
     }
 
     const userExist = await User.findOne({email})
-    console.log(userExist)
-    if(userExist.length>0){
+    if(userExist){
         res.status(400)
         throw new Error('User Already Exist')
     }
@@ -31,7 +30,8 @@ const registerUser = asyncHandler(async(req,res)=>{
         res.status(201).json({
             id:user._id,
             name,
-            email  
+            email,
+            token:generateToken(user._id)
         })
     }else{
         res.status(400)
@@ -50,7 +50,8 @@ const loginUser = asyncHandler(async(req,res)=>{
         res.status(200).json({
             _id:user._id,
             name:user.name,
-            email:user.email
+            email:user.email,
+            token:generateToken(user._id)
         })
     }else{
         res.status(400)
@@ -58,7 +59,24 @@ const loginUser = asyncHandler(async(req,res)=>{
     }
 })
 
+
+// @desc get user based on token
+// @route GET /api/users/me
+
+const getMe = asyncHandler(async(req,res)=>{
+    res.status(200).json(req.user)
+})
+
+
+//  Create Token
+const generateToken = (id)=>{
+    return jwt.sign({id},process.env.JWT_SECRET,{
+        expiresIn:'1d',
+    })
+}
+
 module.exports = {
     registerUser,
-    loginUser
+    loginUser,
+    getMe
 }
