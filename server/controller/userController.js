@@ -64,6 +64,7 @@ const loginUser = asyncHandler(async(req,res)=>{
 // @route GET /api/users/me
 
 const getMe = asyncHandler(async(req,res)=>{
+    // req.user is added in middleware
     res.status(200).json(req.user)
 })
 
