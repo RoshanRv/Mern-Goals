@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server/index.js",
     "devStart": "nodemon server/index.js",
-    "client":"npm start --prefix client"
+    "client": "npm start --prefix client"
   },
   "author": "Roshan Kumar",
   "license": "ISC",
