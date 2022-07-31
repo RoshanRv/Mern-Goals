@@ -1,28 +1,52 @@
-import React ,{useState}from 'react'
+import React ,{useState,useEffect}from 'react'
 import { FaSignInAlt } from 'react-icons/fa'
+import {useSelector , useDispatch} from 'react-redux'
+import {useNavigate} from 'react-router-dom'
+import {toast} from 'react-toastify'
+import {login,reset} from '../features/auth/authSlice'
+import Spinner from '../components/Spinner'
 
-interface FormData{
-  email?:string,
-  password?:string,
-}
 
 const Login = () => {
 
-  const [formData,setFormData]=useState<FormData>({
+  const [formData,setFormData]=useState({
     email:'',
     password:''
   })
   const {email,password} = formData
 
-  const handleChange = (e:any)=>{
+  const {user,isLoading,isError,message,isSuccess} = useSelector((state)=>state.auth)
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  useEffect(()=>{
+
+    if(isError){
+      toast.error(message)
+    }
+
+    if(user){
+      navigate('/')
+    }
+
+    dispatch(reset())
+
+  },[user,isLoading,isError,message])
+
+  const handleChange = (e)=>{
     setFormData(pre=>({
       ...pre,[e.target.name]:e.target.value
     }))
   }
 
-  const handleSubmit = (e:any)=>{
+  const handleSubmit = (e)=>{
     if( email !='' || password !='' ){
       e.preventDefault()
+
+      const userData = {email,password}
+
+      dispatch(login(userData))
     }
   }
 
