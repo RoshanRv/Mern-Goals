@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = '/api/users/'
+const API_URL = 'https://goal-setter--mern.herokuapp.com/api/users/'
 
 //      register
 
@@ -18,7 +18,7 @@ const register = async(user)=>{
 // login
 
 const login = async(user)=>{
-    const resp = await axios.post(API_URL+'login',user)
+    const resp = await axios.post('https://goal-setter--mern.herokuapp.com/api/users/login',user)
 
     if(resp.data){
         localStorage.setItem('user',JSON.stringify(resp.data))
