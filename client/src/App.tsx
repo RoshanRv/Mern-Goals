@@ -6,12 +6,13 @@ import Dashboard from './pages/Dashboard'
 import Header from './components/Header';
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from './components/Footer';
 
 
 function App() {
   return (
     <Router>
-      <div className='w-full flex flex-col h-screen' >
+      <div className='w-full flex flex-col min-h-screen' >
         <Header/>
         <Routes>
           <Route path='/login' element={<Login/>}/>
@@ -19,6 +20,7 @@ function App() {
           <Route path='/' element={<Dashboard/>}/>
         </Routes>
         <ToastContainer />
+        <Footer />
       </div>
     </Router>
   );

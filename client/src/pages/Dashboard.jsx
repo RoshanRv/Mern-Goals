@@ -12,12 +12,15 @@ const Dashboard = () => {
   const navigate = useNavigate()
 
   useEffect(()=>{
-
     if(!user)navigate('/login')
+  },[user])
 
-    dispatch(getGoals())
+  useEffect(()=>{
 
-
+    
+    if(user){
+      dispatch(getGoals())
+    }
 
     if(isError){
       console.log({message})
@@ -38,7 +41,7 @@ const Dashboard = () => {
   return (
     <main className='flex flex-col items-center h-full'>
       <section className='mt-8 w-full text-center flex flex-col gap-y-6'>
-        <h1 className="text-4xl font-bold">Welcome {user.name} !</h1>
+        <h1 className="text-4xl font-bold">Welcome {user?.name} !</h1>
         <h1 className="text-3xl font-semibold text-gray-500">Set Your New Goals!!</h1>
         <GoalForm />
       </section>
