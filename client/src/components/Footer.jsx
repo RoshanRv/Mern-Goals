@@ -1,7 +1,8 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faHeart } from '@fortawesome/free-solid-svg-icons';
-import { faTwitter, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { FaGithub ,FaTwitter,FaLinkedin,FaHeart} from 'react-icons/fa';
+// import { faTwitter, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
 
@@ -26,8 +27,8 @@ const Footer = () => {
   return(
      <footer className='bg-white text-black border-t-2 mt-10 border-black txt-sha text-md  p-2 md:flex items-center justify-around text-center font-disp'>
        
-         <h1 className='text-'>Made With&nbsp; <FontAwesomeIcon icon={faHeart} className='text-red-500 beat text-md beat -z-10'/> &#38; &#129504; &nbsp; By Roshan Kumar  </h1>
-         <h1>Reach Me On <a href='https://twitter.com/RoshanK18328680' target='_blank'>< FontAwesomeIcon icon={faTwitter} className='text-blue-500  text-xl mx-1'/></a> <a href='https://github.com/RoshanRv' target='_blank'>< FontAwesomeIcon icon={faGithub} className='text-xl  mx-1 bg-white text-black rounded-full '/></a> <a href='https://www.linkedin.com/in/roshan-kumar-5a5020220/' target='_blank'> < FontAwesomeIcon icon={faLinkedin} className='text-xl  mx-1 text-blue-700 bg-white '/></a></h1>
+         <h1 className='text-'>Made With&nbsp; <FaHeart className='text-red-500 beat inline-block text-md beat -z-10'/> &#38; &#129504; &nbsp; By Roshan Kumar  </h1>
+         <h1>Reach Me On <a href='https://twitter.com/RoshanK18328680' target='_blank'>< FaTwitter className='text-blue-500 inline-block  text-xl mx-1'/></a> <a href='https://github.com/RoshanRv' target='_blank'>< FaGithub className='text-xl inline-block  mx-1 bg-white text-black rounded-full '/></a> <a href='https://www.linkedin.com/in/roshan-kumar-5a5020220/' target='_blank'> < FaLinkedin className='text-xl inline-block mx-1 text-blue-700 bg-white '/></a></h1>
 
      </footer>);
 };
