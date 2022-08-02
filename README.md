@@ -1,4 +1,4 @@
-# Mern - Goals (In Progress)
+# Mern - Goals
 
 Simple MERN webapp to create and edit goals usign Redux Toolkit & JWT.
 
