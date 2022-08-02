@@ -12,7 +12,7 @@ import Footer from './components/Footer';
 function App() {
   return (
     <Router>
-      <div className='w-full flex flex-col min-h-screen' >
+      <div className='w-full flex flex-col min-h-screen max-h-max ' >
         <Header/>
         <Routes>
           <Route path='/login' element={<Login/>}/>
